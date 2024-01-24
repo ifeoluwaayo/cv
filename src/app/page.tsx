@@ -11,7 +11,7 @@ import Image from "next/image";
 
 export default function Page() {
   return (
-    <main className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
+    <main className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:mb-0 print:p-12 print:py-6 md:p-16 print:dark:bg-white print:dark:text-black">
       <section className="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-6 dark:bg-transparent">
         <div className="flex items-center justify-between">
           <div className="flex-1 space-y-1.5">
