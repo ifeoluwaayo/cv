@@ -2,7 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Section } from "@/components/ui/section";
-import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
+import { GlobeIcon, MailIcon, MapPin, PhoneIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
@@ -22,10 +22,20 @@ export default function Page() {
             <p className="max-w-md items-center text-pretty font-mono text-xs text-muted-foreground">
               <a
                 className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
-                href={RESUME_DATA.locationLink}
+                href={RESUME_DATA.personalWebsiteUrl}
                 target="_blank"
               >
                 <GlobeIcon className="size-3" />
+                {RESUME_DATA.personalWebsiteUrl}
+              </a>
+            </p>
+            <p className="max-w-md items-center text-pretty font-mono text-xs text-muted-foreground">
+              <a
+                className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
+                href={RESUME_DATA.locationLink}
+                target="_blank"
+              >
+                <MapPin className="size-3" />
                 {RESUME_DATA.location}
               </a>
             </p>
