@@ -1,17 +1,18 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CommandMenu } from "@/components/command-menu";
 import { Section } from "@/components/ui/section";
 import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
+import { ToolBar } from "@/components/toolbar";
+import Image from "next/image";
 
 export default function Page() {
   return (
     <main className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
-      <section className="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-6">
+      <section className="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-6 dark:bg-transparent">
         <div className="flex items-center justify-between">
           <div className="flex-1 space-y-1.5">
             <h1 className="text-2xl font-bold">{RESUME_DATA.name}</h1>
@@ -100,6 +101,13 @@ export default function Page() {
                 <CardHeader>
                   <div className="flex items-center justify-between gap-x-2 text-base">
                     <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
+                      <Image
+                        src={work.logo}
+                        width={25}
+                        height={25}
+                        alt={work.company}
+                        className="mr-1 rounded-full"
+                      />
                       <a className="hover:underline" href={work.link}>
                         {work.company}
                       </a>
@@ -108,7 +116,7 @@ export default function Page() {
                         {work.badges.map((badge) => (
                           <Badge
                             variant="secondary"
-                            className="align-middle text-xs"
+                            className="ml-1 align-middle text-[10px]"
                             key={badge}
                           >
                             {badge}
@@ -179,18 +187,9 @@ export default function Page() {
         </Section>
       </section>
 
-      <CommandMenu
-        links={[
-          {
-            url: RESUME_DATA.personalWebsiteUrl,
-            title: "Personal Website",
-          },
-          ...RESUME_DATA.contact.social.map((socialMediaLink) => ({
-            url: socialMediaLink.url,
-            title: socialMediaLink.name,
-          })),
-        ]}
-      />
+      <div className="print:hidden">
+        <ToolBar />
+      </div>
     </main>
   );
 }

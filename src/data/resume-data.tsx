@@ -12,6 +12,10 @@ export const RESUME_DATA = {
     "As a creative frontend developer, I am passionate about building unique, unforgettable and beautiful digital user experiences for any brand/company I work with. My go to tools are Nextjs, Vue, React, Framer motion and GSAP. I have 3+ years working both in remote and hybrid positions with companies all over the world.",
   avatarUrl: "https://avatars.githubusercontent.com/u/79877061?v=4",
   personalWebsiteUrl: "https://adeayomide.me",
+  status: {
+    color: "active",
+    label: "Available",
+  },
   contact: {
     email: "adeayomide112@gmail.com",
     tel: "+2349133640357",

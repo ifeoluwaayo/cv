@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { RESUME_DATA } from "@/data/resume-data";
 import Script from "next/script";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   title: `${RESUME_DATA.name} | ${RESUME_DATA.about}`,
@@ -107,13 +108,15 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en" className={inter.className} suppressHydrationWarning>
       <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {children}
+        <ThemeProvider attribute="class" enableSystem disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
 
         <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
       </body>
